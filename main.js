@@ -20,16 +20,24 @@ let selectedCurrencyActionType = DEFAULT_CURRENCY_ACTION_TYPE;
 setupButtons();
 refreshBanks();
 
-function Bank(name, buy, selling) {
+function Bank(name, buy, sell) {
     this.name = name;
     this.buy = buy;
-    this.selling = selling;
+    this.sell = sell;
 }
 
 function refreshBanks() {
-    banks = getBanks();
-    sortBanks(selectedSortType);
-    displayBanks();
+    getJSON('https://kafemaak.000webhostapp.com/',
+        function(err, data) {
+            if (err !== null) {
+                alert('Something went wrong: ' + err);
+            } else {
+                //TODO: change for better
+                banks = data.banksUsd;
+                sortBanks(selectedSortType);
+                displayBanks();
+            }
+        });
 }
 
 function sortBanks(sortType) {
@@ -47,7 +55,7 @@ function sortBanks(sortType) {
                     break;
 
                 case SELLING_TYPE:
-                    banks.sort(byField('selling').desc);
+                    banks.sort(byField('sell').desc);
                     break
             }
             break;
@@ -92,7 +100,7 @@ function displayBanks() {
         }
 
         if (sellingIsSelected) {
-            bankEl.appendChild(getNewSpan(bank.selling));
+            bankEl.appendChild(getNewSpan(bank.sell));
         }
 
         return bankEl;
@@ -158,21 +166,6 @@ function onChangeSortType(type) {
     }
 }
 
-function getBanks() {
-    const arr = [];
-
-    getJSON('https://kafemaak.000webhostapp.com/',
-        function(err, data) {
-            if (err !== null) {
-                alert('Something went wrong: ' + err);
-            } else {
-                console.log(data)
-            }
-        });
-
-    return arr;
-}
-
 function getJSON(url, callback) {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
@@ -186,4 +179,4 @@ function getJSON(url, callback) {
         }
     };
     xhr.send();
-};
+}
