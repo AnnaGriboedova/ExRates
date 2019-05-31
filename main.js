@@ -159,18 +159,31 @@ function onChangeSortType(type) {
 }
 
 function getBanks() {
-    //TODO: get banks from API
     const arr = [];
 
-    arr.push(new Bank('БелВэб', 2.07, 2.096));
-    arr.push(new Bank('Приорбанк', 2.0831, 2.0918));
-    arr.push(new Bank('СтатусБанк', 2.0774, 2.088));
-    arr.push(new Bank('БНБ-Банк', 2.0763, 2.092));
-    arr.push(new Bank('МТБанк', 2.083, 2.094));
-    arr.push(new Bank('Идея Банк', 2.081, 2.0895));
-    arr.push(new Bank('Белинвест Банк', 2.0755, 2.089));
-    arr.push(new Bank('Беларусбанк', 2.0711, 2.0917));
-    arr.push(new Bank('Банк Добрабыт', 2.0773, 2.088));
+    getJSON('https://kafemaak.000webhostapp.com/',
+        function(err, data) {
+            if (err !== null) {
+                alert('Something went wrong: ' + err);
+            } else {
+                console.log(data)
+            }
+        });
 
     return arr;
 }
+
+function getJSON(url, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+        const status = xhr.status;
+        if (status === 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status, xhr.response);
+        }
+    };
+    xhr.send();
+};
