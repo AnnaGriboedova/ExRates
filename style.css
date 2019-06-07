@@ -1,0 +1,253 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input{
+    outline: none;
+}
+
+.wrapper{
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    font-family: sans-serif;
+}
+.bestRateCalcBlockWrapper{
+    display: inline-block;
+    width: 100%;
+    padding: 20px 0;
+    //border-width: 1px 0;
+    //border-style: solid;
+    //border-color: #634B27;
+}
+.bestRateCalcBlock{
+    height: 40px;
+    display: inline-block;
+    font-size: 0;
+}
+.bestRateCalcBlock:before{
+    display: inline-block;
+    content: '';
+    height: 100%;
+    vertical-align: middle;
+}
+.bestRateCalcBlock *{
+    vertical-align: middle;
+    font-size: medium;
+}
+.bestRateCalcBlock__inputWrapper{
+    display: inline-block;
+    position: relative;
+    height: 100%;
+}
+.bestRateCalcBlock__input{
+    display: inline-block;
+    width: 200px;
+    height: 100%;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #586D10;
+    padding: 10px 30px 10px 10px;
+    background: rgba(88,109,16,0.1);
+}
+.bestRateCalcBlock__currency{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("img/icons/dollar.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.bestRateCalcBlock__course, .bestRateCalcBlock__result{
+    display: inline-block;
+    font-size: 16px;
+    min-width: 80px;
+    height: 100%;
+    //height: 100%;
+    padding: 0 0 0 30px;
+    position: relative;
+    margin: 0 0 0 10px;
+    line-height: 40px;
+
+}
+.bestRateCalcBlock__course:before, .bestRateCalcBlock__result:before{
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-image: url("img/icons/mul.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+.bestRateCalcBlock__course:after{
+    display: inline-block;
+    position: absolute;
+    content: 'лучший курс';
+    color: #586D10;
+    bottom: 0;
+    font-size: 9px;
+    line-height: initial;
+    width: 55px;
+    right: -3px;
+}
+.bestRateCalcBlock__result:before{
+    background-image: url("img/icons/equally.png");
+}
+
+.buttonsActionWrapper{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+.buttonsActionWrapper__btn{
+    display: inline-block;
+    height: 30px;
+    width: 150px;
+    margin: 0 10px;
+    border: 1px solid #634B27;
+    cursor: pointer;
+    color: #634B27;
+    background: white;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.buttonsActionWrapper__btn.active{
+    background: #586D10;
+    border-color: #586D10;
+    color: white;
+}
+
+
+
+.buttonsSortWrapper{
+    display: inline-block;
+    width: 100%;
+    margin: 20px 0 0 0;
+    height: 30px;
+}
+.buttonsSortWrapper__btn{
+    display: inline-block;
+    height: 100%;
+    width: 100px;
+    border-radius: 15px;
+    background: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 1px solid #634B27;
+}
+.buttonsSortWrapper__btn.active{
+    background: #586D10;
+    border-color: #586D10;
+    color: white;
+}
+
+.bankList{
+   text-align: left;
+    margin: 40px auto 0 auto;
+    width: 70%;
+    border-collapse: collapse;
+}
+.bankList td{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+
+}
+.bankItem__currencyValue{
+    text-align: right !important;
+    border-right: 1px solid #ddd;
+}
+.bankItem__inputValue:before{
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-image: url("img/icons/mul.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+.bankItem__inputValue{
+    padding-left: 30px !important;
+    position: relative;
+    padding-right: 0  !important;
+}
+.bankItem__inputValue:after{
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-image: url("img/icons/dollar.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+.bankItem__result{
+    padding-left: 30px !important;
+    position: relative;
+}
+.bankItem__result:before{
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-image: url("img/icons/equally.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+.bankItem__differenceValue{
+    color: red;
+    position: relative;
+}
+
+.bankItem__differenceValue:before{
+    display: inline-block;
+    content: '+';
+    position: absolute;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+}
+.bankList tr.bestCourse .bankItem__differenceValue{
+    color: #586D10;
+    padding-left: 5px !important;
+}
+.bankList tr.bestCourse .bankItem__differenceValue:before{
+    content: none;
+}
+.bankList tr.bestCourse{
+    background: rgba(88,109,16,0.1);
+
+}

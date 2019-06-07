@@ -3,18 +3,36 @@
 	<head>
 		<title></title>
 		<meta charset="utf-8">
+        <link type="text/css" rel="stylesheet" href="style.css">
 		<script type="text/javascript" src="main.js" defer></script>
 	</head>
 	<body>
-        <div>
-            <input id="btnBuy" type="button" value="купить">
-            <input id="btnSelling" type="button" value="продать">
+        <div class="wrapper">
+            <div class="bestRateCalcBlockWrapper">
+                <div class="bestRateCalcBlock">
+                    <span class="bestRateCalcBlock__inputWrapper">
+                        <input class="bestRateCalcBlock__input" id="inputValue" type="text" placeholder="1000">
+                        <span class="bestRateCalcBlock__currency"></span>
+                    </span>
+                    <span class="bestRateCalcBlock__course" id="bestCourse"></span>
+                    <span class="bestRateCalcBlock__result" id="result"></span>
+                    <!--<input class="bestRateCalcBlock__btn" id="getBestCourseBtn" type="button" value='рассчитать'>-->
+                </div>
+            </div>
+
+            <div class="buttonsActionWrapper">
+                <input class="buttonsActionWrapper__btn" id="btnBuy" type="button" value="купить">
+                <input class="buttonsActionWrapper__btn" id="btnSelling" type="button" value="продать">
+            </div>
+
+            <div class="buttonsSortWrapper">
+                <input class="buttonsSortWrapper__btn" id="btnSortByName" type="button" value="по имени">
+                <input class="buttonsSortWrapper__btn" id="btnSortByAdvantage" type="button" value="выгоднее">
+                <input class="buttonsSortWrapper__btn" id="btnSortByLocation" type="button" value="ближе">
+            </div>
+
+            <table class="bankList" id="bankList" ></table>
+
         </div>
-        <div>
-            <input class="sortBtn" id="btnSortByName" type="button" value="по имени">
-            <input class="sortBtn" id="btnSortByAdvantage" type="button" value="выгоднее">
-            <input class="sortBtn" id="btnSortByLocation" type="button" value="ближе">
-        </div>
-		<div id="bankList" class="" ></div>
 	</body>
 </html>
